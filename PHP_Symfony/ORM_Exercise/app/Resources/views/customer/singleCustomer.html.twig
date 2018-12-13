@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">BirthDate</th>
+            <th scope="col">Cars Bought</th>
+            <th scope="col">Money Spent</th>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">{{ customer.id }}</th>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.birthDate|date('d/m/y') }}</td>
+            <td>{{ final['count'] }}</td>
+            <td>{{ final['price'] }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% include 'base.html.twig' %}
+
+{% block body %}
+    <h3>Car >></h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Make</th>
+            <th scope="col">Model</th>
+            <th scope="col">Travelled Distance</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <th scope="row">{{ car.id }}</th>
+            <td>{{ car.make }}</td>
+            <td>{{ car.model }}</td>
+            <td>{{ car.traveledDistance }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <h3>Parts >></h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for part in car.parts %}
+            <tr>
+                <th scope="row">{{ part.id }}</th>
+                <td>{{ part.name }}</td>
+                <td>{{ part.price }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

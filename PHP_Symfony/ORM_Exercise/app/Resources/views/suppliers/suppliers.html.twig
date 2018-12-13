@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="table-responsive col-md-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Count Parts</th>
+                    <th scope="col">Is Importer</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for importer in suppliers['Importer'] %}
+                    <tr>
+                        <th scope="row">{{ importer.id }}</th>
+                        <td>{{ importer.name }}</td>
+                        <td>{{ importer.parts|length }}</td>
+                        <td>{{ importer.isImporter ? 'Yes' : 'No' }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive col-md-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Count Parts</th>
+                    <th scope="col">Is Importer</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for local in suppliers['Local'] %}
+                    <tr>
+                        <th scope="row">{{ local.id }}</th>
+                        <td>{{ local.name }}</td>
+                        <td>{{ local.parts|length }}</td>
+                        <td>{{ local.isImporter ? 'Yes' : 'No' }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

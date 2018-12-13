@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for car in cars %}
+        <a class="btn btn-primary" href="{{ path('cars_ordered', {'make': car.make }) }}" role="button">{{ car.make }}</a>
+    {% endfor %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Make</th>
+            <th scope="col">Model</th>
+            <th scope="col">Travelled Distance</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for car in allCars %}
+            <tr>
+                <th scope="row">{{ car.id }}</th>
+                <td>{{ car.make }}</td>
+                <td>{{ car.model }}</td>
+                <td>{{ car.traveledDistance }}</td>
+                <td><a href="{{ path('single_car_parts', {'id': car.id }) }}" type="button" class="btn btn-light">Info</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
